@@ -15,8 +15,8 @@
 	display: table;
 }
 html {
-	font-family: Circular Std Book,	 sans-serif;
-	font-weight: 100;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
 }
 body {
 	width: 60%;
@@ -48,15 +48,16 @@ body {
 }
 .blue {
 	color: #027BFF;
+	font-weight: 600;
 }
 h1 {
 	font-size: 40px;
-	font-weight: 400;
+	font-weight: 600;
 	color: #17191A;
 }
 h2 {
 	font-size: 35px;
-	font-weight: 400;
+	font-weight: 600;
 	color: #17191A;
 }
 h5 {
