@@ -16,15 +16,10 @@ $colors: (
     font-family: 'Kurale', sans-serif;
     margin: 0;
     padding: 0;
+    border: 0;
 }
 
-body {
-    background-color: color(white);
-}
-
-section {
-    height: 100vh;
-}
+/* ----- Typography ----- */
 
 h2 {
     font-size: 32px;
@@ -56,11 +51,50 @@ a {
     color: color(gold);
 }
 
+/* ----- Page structure ----- */
+
+body {
+    background-color: color(white);
+}
+
+section {
+    height: 100vh;
+}
+
+.section-float {
+    background-color: color(white);
+    border: 1px solid color(gold);
+    border-radius: 16px 16px 0 0;
+    padding: 24px;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/background-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+}
+
 /* ----- Section Home ----- */
+
+#home {
+    padding: 0 24px;
+}
 
 /* ----- Section History ----- */
 
+#history ol {
+    list-style-type: none;
+}
+
 /* ----- Section Ceremony ----- */
+
+address ol {
+    list-style-type: none;
+}
 
 .date {
     display: inline-block;
@@ -68,7 +102,7 @@ a {
     height: 40px;
     background-image: url(/assets/date.svg);
     background-repeat: no-repeat;
-    color: transparent;
+    margin: 0 auto;
 }
 
 /* ----- Section Blessing ----- */
@@ -84,7 +118,7 @@ a {
     border: 2px solid color(gold);
     border-radius: 24px;
     padding: 8px 16px;
-    max-width: 366px;
+    margin: 16px 0 0;
 }
 
 .btn-secondary {
@@ -98,5 +132,5 @@ a {
     border: 2px solid color(gold);
     border-radius: 24px;
     padding: 8px 16px;
-    max-width: 366px;
+    margin: 24px 0 0;
 }
