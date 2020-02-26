@@ -22,12 +22,16 @@ $colors: (
 /* ----- Typography ----- */
 
 h2 {
+    display: inline-block;
+    width: 100%;
     font-size: 32px;
     line-height: 48px;
     color: color(green-dark);
 }
 
 strong {
+    display: inline-block;
+    width: 100%;
     font-size: 24px;
     line-height: 36px;
     text-align: center;
@@ -36,6 +40,8 @@ strong {
 }
 
 small {
+    display: inline-block;
+    width: 100%;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
@@ -44,6 +50,8 @@ small {
 }
 
 a {
+    display: inline-block;
+    width: 100%;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
@@ -55,82 +63,139 @@ a {
 
 body {
     background-color: color(white);
+
+    .page-background {
+        width: 100%;
+        height: 100%;
+        background-image: url(/casamento/assets/background-mobile.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        z-index: -1;
+    }
 }
 
 section {
     height: 100vh;
+
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
 }
 
 .section-float {
     background-color: color(white);
     border: 1px solid color(gold);
+    border-bottom: 0;
     border-radius: 16px 16px 0 0;
     padding: 24px;
-}
-
-.bg {
-    width: 100%;
-    height: 100%;
-    background-image: url(/casamento/assets/background-mobile.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: -1;
 }
 
 /* ----- Section Home ----- */
 
 #home {
     padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ----- Section History ----- */
 
-#history ol {
-    list-style-type: none;
+#history {
+
+    ol {
+        list-style-type: none;
+        margin: 0px -8px;
+
+        li {
+            color: color(white);
+            padding: 16px;
+            margin: 8px;
+            border-radius: 0px 0px 16px 16px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        }
+    }
 }
 
 /* ----- Section Ceremony ----- */
 
-address ol {
-    list-style-type: none;
-}
+#ceremony {
 
-.date {
-    display: inline-block;
-    width: 225px;
-    height: 40px;
-    background-image: url(/casamento/assets/date.svg);
-    background-repeat: no-repeat;
-    margin: 0 auto;
+    .date {
+        display: inline-block;
+        width: 225px;
+        height: 40px;
+        background-image: url(/casamento/assets/date.svg);
+        background-repeat: no-repeat;
+        margin: 0 auto;
+    }
+
+    ol {
+        list-style-type: none;
+    }
 }
 
 /* ----- Section Blessing ----- */
 
-.btn-primary {
+.btn {
     font-size: 20px;
     line-height: 28px;
     text-align: center;
     text-decoration: none;
-    color: color(white);
     display: block;
-    background-color: color(gold);
-    border: 2px solid color(gold);
     border-radius: 24px;
-    padding: 8px 16px;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
     margin: 16px 0 0;
 }
 
+.btn-primary {
+    color: color(white);
+    background-color: color(gold);
+    border: 2px solid color(gold);
+}
+
 .btn-secondary {
-    font-size: 20px;
-    line-height: 28px;
-    text-align: center;
-    text-decoration: none;
     color: color(gold-dark);
-    display: block;
     background-color: color(white);
     border: 2px solid color(gold);
-    border-radius: 24px;
-    padding: 8px 16px;
-    margin: 24px 0 0;
 }
+
+footer {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-decoration: none;
+    color: color(white);
+    background-color: color(gold);
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    cite {
+        font-size: 10px;
+        line-height: 24px;
+    }
+
+}
+
+/*
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    justify-content: space-between;
+    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    align-items: stretch;
+} */
