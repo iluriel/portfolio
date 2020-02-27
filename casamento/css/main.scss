@@ -14,12 +14,14 @@ $colors: (
 
 * {
     font-family: 'Kurale', sans-serif;
-    margin: 0;
-    padding: 0;
-    border: 0;
 }
 
 /* ----- Typography ----- */
+
+h1 {
+    visibility:hidden;
+    text-align: center;
+}
 
 h2 {
     display: inline-block;
@@ -35,7 +37,6 @@ strong {
     font-size: 24px;
     line-height: 36px;
     text-align: center;
-    text-decoration: none;
     color: color(black);
 }
 
@@ -76,7 +77,9 @@ body {
 }
 
 section {
-    height: 100vh;
+    height: 80vh;
+    padding: 16px 24px 0px 24px;
+    margin-top: -16px;
 
     article {
         display: flex;
@@ -91,7 +94,6 @@ section {
     border: 1px solid color(gold);
     border-bottom: 0;
     border-radius: 16px 16px 0 0;
-    padding: 24px;
 }
 
 /* ----- Section Home ----- */
@@ -102,22 +104,57 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    header {
+        margin-bottom: 16px;
+        width: 226px;
+        height: 144px;
+        background-image: url(/casamento/assets/logo-aline-iluriel-square.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
 
 /* ----- Section History ----- */
 
 #history {
 
-    ol {
-        list-style-type: none;
-        margin: 0px -8px;
+    .history-cards {
+        /* mobile */
+        overflow: auto;
 
-        li {
-            color: color(white);
-            padding: 16px;
-            margin: 8px;
-            border-radius: 0px 0px 16px 16px;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        ol {
+            list-style-type: none;
+            margin: 0px -8px;
+            display: flex;
+
+            li {
+                color: color(white);
+                padding: 16px;
+                margin: 8px;
+                border-radius: 16px;
+                display: flex;
+                align-items: flex-end;
+                /* mobile */
+                height: 325px;
+                width: calc(100% - 64px);
+                flex-shrink: 0;
+            }
+
+            li:nth-child(1) {
+                background-image: url(/casamento/assets/history-01.jpg);
+                background-size: cover;
+            }
+
+            li:nth-child(2) {
+                background-image: url(/casamento/assets/history-02.jpg);
+                background-size: cover;
+            }
+
+            li:nth-child(3) {
+                background-image: url(/casamento/assets/history-03.jpg);
+                background-size: cover;
+            }
         }
     }
 }
