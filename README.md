@@ -1,2 +1,2 @@
 # portfolio
-Portfolio iluriel.com.br
+Portfolio iluriel.com
