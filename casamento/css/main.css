@@ -1,19 +1,87 @@
 * {
   font-family: 'Kurale', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* ----- Page structure ----- */
+body {
+  overflow: hidden;
+}
+
+.section__float {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  border: 1px solid #947100;
+  border-bottom: 0;
+  border-radius: 16px 16px 0 0;
+  position: absolute;
+}
+
+.section-content {
+  padding: 0px 24px 0px 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section__history {
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  bottom: calc(64px - 100vh);
+}
+
+#section__ceremony {
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  bottom: calc(32px - 100vh);
+}
+
+#section__blessing {
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+  bottom: calc(16px - 100vh);
 }
 
 /* ----- Typography ----- */
 h1 {
   visibility: hidden;
+  line-height: 16px;
   text-align: center;
 }
 
-h2 {
+.section__title {
+  padding: 16px 24px 0px 24px;
   display: inline-block;
   width: 100%;
   font-size: 32px;
   line-height: 48px;
+  margin-bottom: 24px;
   color: #1b3d21;
+}
+
+.section__title--off {
+  padding: 4px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  color: #277234;
 }
 
 strong {
@@ -45,53 +113,20 @@ a {
   color: #947100;
 }
 
-/* ----- Page structure ----- */
-body {
-  background-color: #ffffff;
+/* ----- Section Home ----- */
+nav {
+  position: fixed;
+  top: 4px;
+  left: 16px;
+  z-index: 1000;
+  visibility: hidden;
 }
 
-body .page-background {
+#section__home {
   width: 100%;
   height: 100%;
-  background-image: url(/casamento/assets/background-mobile.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
   position: absolute;
-  z-index: -1;
-}
-
-section {
-  height: 80vh;
-  padding: 16px 24px 0px 24px;
-  margin-top: -16px;
-}
-
-section article {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.section-float {
-  background-color: #ffffff;
-  border: 1px solid #947100;
-  border-bottom: 0;
-  border-radius: 16px 16px 0 0;
-}
-
-/* ----- Section Home ----- */
-#home {
-  padding: 0 24px;
+  z-index: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,33 +142,53 @@ section article {
           align-items: center;
 }
 
-#home header {
-  margin-bottom: 16px;
-  width: 226px;
-  height: 144px;
-  background-image: url(/casamento/assets/logo-aline-iluriel-square.svg);
+#section__home .scroll__logo {
+  display: none;
+}
+
+#section__home .background__image--top-right {
+  z-index: -1;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 240px;
+  height: 362px;
+  background: url(/assets/superior-direito-folhas.png);
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
-/* ----- Section History ----- */
-#history .history-cards {
-  /* mobile */
+#section__home .background__image--botton-left {
+  z-index: -1;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 240px;
+  height: 212px;
+  background: url(/assets/inferior-esquerdo-folhas.png);
+  background-size: cover;
+}
+
+/* ----- Section history ----- */
+#section__history .section__scroll {
+  position: relative;
+  padding-left: 24px;
   overflow: auto;
-}
-
-#history .history-cards ol {
-  list-style-type: none;
-  margin: 0px -8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#history .history-cards ol li {
+#section__history .section__scroll ol {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#section__history .section__scroll ol li {
   color: #ffffff;
   padding: 16px;
-  margin: 8px;
+  margin-right: 16px;
   border-radius: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -141,43 +196,48 @@ section article {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  /* mobile */
   height: 325px;
-  width: calc(100% - 64px);
+  width: calc(100% - 112px);
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
-#history .history-cards ol li:nth-child(1) {
-  background-image: url(/casamento/assets/history-01.jpg);
+#section__history .section__scroll ol li:nth-child(1) {
+  background-image: url(/assets/history-01.jpg);
   background-size: cover;
 }
 
-#history .history-cards ol li:nth-child(2) {
-  background-image: url(/casamento/assets/history-02.jpg);
+#section__history .section__scroll ol li:nth-child(2) {
+  background-image: url(/assets/history-02.jpg);
   background-size: cover;
 }
 
-#history .history-cards ol li:nth-child(3) {
-  background-image: url(/casamento/assets/history-03.jpg);
+#section__history .section__scroll ol li:nth-child(3) {
+  background-image: url(/assets/history-03.jpg);
   background-size: cover;
 }
 
-/* ----- Section Ceremony ----- */
-#ceremony .date {
+#section__history .section__scroll ol .scroll-spacing {
+  width: 8px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* ----- Section ceremony ----- */
+#section__ceremony .ceremony__date {
   display: inline-block;
   width: 225px;
   height: 40px;
-  background-image: url(/casamento/assets/date.svg);
+  background-image: url(/assets/date.svg);
   background-repeat: no-repeat;
   margin: 0 auto;
 }
 
-#ceremony ol {
+#section__ceremony ol {
   list-style-type: none;
 }
 
-/* ----- Section Blessing ----- */
+/* ----- Section blessing ----- */
 .btn {
   font-size: 20px;
   line-height: 28px;
@@ -204,6 +264,7 @@ section article {
 }
 
 footer {
+  position: relative;
   display: inline-block;
   width: 100%;
   font-size: 16px;
@@ -214,6 +275,7 @@ footer {
   background-color: #947100;
   padding-top: 16px;
   padding-bottom: 16px;
+  margin-top: 32px;
 }
 
 footer cite {
@@ -221,17 +283,123 @@ footer cite {
   line-height: 24px;
 }
 
-/*
-.flex {
-    display: flex;
-    flex-direction: row;
-    flex-direction: column;
-    width: 100%;
-    justify-content: flex-start;
-    justify-content: space-between;
-    justify-content: space-evenly;
-    justify-content: center;
-    align-items: center;
-    align-items: stretch;
-} */
+/* ----- Scroll events ----- */
+.section__home--on #section__history .section__title {
+  padding: 4px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  color: #277234;
+}
+
+.section__history--on nav {
+  visibility: visible;
+}
+
+.section__history--on #section__home {
+  opacity: 50%;
+}
+
+.section__history--on #section__history {
+  top: 48px;
+  position: fixed;
+}
+
+.section__history--on #section__history .section__title {
+  padding: 16px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 32px;
+  line-height: 48px;
+  margin-bottom: 24px;
+  color: #1b3d21;
+}
+
+.section__history--on #section__ceremony {
+  bottom: calc(48px - 100vh);
+}
+
+.section__history--on #section__ceremony .section__title {
+  padding: 4px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  color: #277234;
+}
+
+.section__ceremony--on nav {
+  visibility: visible;
+}
+
+.section__ceremony--on #section__home {
+  opacity: 50%;
+}
+
+.section__ceremony--on #section__history {
+  top: 48px;
+}
+
+.section__ceremony--on #section__ceremony {
+  top: 64px;
+  position: fixed;
+}
+
+.section__ceremony--on #section__ceremony .section__title {
+  padding: 16px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 32px;
+  line-height: 48px;
+  margin-bottom: 24px;
+  color: #1b3d21;
+}
+
+.section__ceremony--on #section__blessing {
+  bottom: calc(32px - 100vh);
+}
+
+.section__ceremony--on #section__blessing .section__title {
+  padding: 4px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+  color: #277234;
+}
+
+.section__blessing--on nav {
+  visibility: visible;
+}
+
+.section__blessing--on #section__home {
+  opacity: 50%;
+}
+
+.section__blessing--on #section__history {
+  top: 48px;
+}
+
+.section__blessing--on #section__ceremony {
+  top: 64px;
+}
+
+.section__blessing--on #section__blessing {
+  top: 80px;
+  position: fixed;
+}
+
+.section__blessing--on #section__blessing .section__title {
+  padding: 16px 24px 0px 24px;
+  display: inline-block;
+  width: 100%;
+  font-size: 32px;
+  line-height: 48px;
+  margin-bottom: 24px;
+  color: #1b3d21;
+}
 /*# sourceMappingURL=main.css.map */

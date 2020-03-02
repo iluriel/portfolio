@@ -13,43 +13,41 @@
 
 <body>
 
-    <div class="page-background"></div>
+    <main role="main" class="section__home--on">
 
-    <header>
-        <img src="assets/logo-aline-iluriel-horizontal.svg" alt="Página inicial">
-    </header>
+        <nav>
+            <img class="nav__logo" height="40px" src="/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
+        </nav>
 
-    <main role="main">
-
-        <section id="home">
-            <header>
-                <h1>Aline e Iluriel</h1>
-            </header>
+        <section id="section__home">
+            <img class="home__logo" src="/assets/logo-aline-iluriel-square.svg" alt="Iluriel e Aline">
+            <h1>Aline e Iluriel</h1>
             <small>Convidam para seu casamento</small>
+            <div class="background__image--top-right"></div>
+            <div class="background__image--botton-left"></div>
         </section>
 
-        <section id="history" class="section-float">
-            <header>
+        <section id="section__history" class="section__float">
+            <header id="click__history" class="section__title">
                 <h2>Nossa história</h2>
             </header>
-            <article>
-                <div class="history-cards">
-                    <ol>
-                        <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
-                        <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos.</li>
-                        <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
-                    </ol>
-                </div>
-            </article>
+            <div class="section__scroll">
+                <ol>
+                    <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
+                    <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos.</li>
+                    <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
+                    <div class="scroll-spacing"></div>
+                </ol>
+            </div>
         </section>
 
-        <section id="ceremony" class="section-float">
-            <header>
+        <section id="section__ceremony" class="section__float">
+            <header class="section__title">
                 <h2>A cerimônia</h2>
             </header>
-            <article>
-                <div class="date">
-                    <time datetime="2020-06-20 18:00"></time>
+            <div class="section-content">
+                <div class="ceremony__date">
+                    <time datetime="2020-06-20 18:00"><img src="/assets/date.svg" alt="2020-06-20 18:00"></time>
                 </div>
                 <address>
                     <ol>
@@ -62,25 +60,39 @@
             </article>
         </section>
 
-        <section id="blessing" class="section-float">
-            <header>
+        <section id="section__blessing" class="section__float">
+            <header class="section__title">
                 <h2>Sua bênção</h2>
             </header>
-            <article>
+            <div class="section-content">
                 <strong>Faça parte de nossa história!</strong>
                 <a class="btn btn-primary" href="http://finalfeliz.de/aline-iluriel" target="__blank" title="Lista de presentes">Presentear os noivos</a>
                 <a class="btn btn-secondary" href="https://www.querodecasamento.com.br/lista-de-casamento/aline-iluriel/comentarios/" target="__blank" title="Lista de presentes">Deixar uma mensagem</a>    
-            </article>
+            </div>
+            <footer>
+                <blockquote>
+                    <p>Lâmpada para os meus pés é tua palavra, e luz para o meu caminho.</p>
+                    <cite>Sl 119:105</cite>
+                </blockquote>
+            </footer>
         </section>
 
-        <footer>
-            <blockquote>
-                <p>Lâmpada para os meus pés é tua palavra, e luz para o meu caminho.</p>
-                <cite>Sl 119:105</cite>
-            </blockquote>
-        </footer>
-
     </main>
+
+    <script>
+        document.getElementById("click__history").addEventListener("click", function() {
+            var maina = document.querySelector("main");
+            maina.classList.toggle("section__history--on");
+        });
+        document.getElementById("section__ceremony").addEventListener("click", function() {
+            var mainb = document.querySelector("main");
+            mainb.classList.toggle("section__ceremony--on");
+        });
+        document.getElementById("section__blessing").addEventListener("click", function() {
+            var mainc = document.querySelector("main");
+            mainc.classList.toggle("section__blessing--on");
+        });
+    </script>
 
 </body>
 </html>
