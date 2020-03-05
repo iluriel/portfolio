@@ -77,6 +77,53 @@
         </section>
 
     </main>
+
+    <script>
+        document.querySelector('body').addEventListener("touchstart", touchStart, false);
+        document.querySelector('body').addEventListener("touchmove", touchMove, false);
+
+        var start = { y: 0 };
+
+        function touchStart(event) {
+            start.y = event.touches[0].pageY;
+        }
+
+        function touchMove(event) {
+            offset = {};
+
+            offset.y = start.y - event.touches[0].pageY;
+
+            return offset;
+
+            if (offset >= 100) {
+                if (sec_history.classList.contains("active")) {
+                    if (sec_ceremony.classList.contains("active")) {
+                        sec_blessing.classList.add("active");
+                    } else {
+                        sec_ceremony.classList.add("active");
+                    }
+                } else {
+                sec_history.classList.add("active");
+                sec_home.classList.add("active");
+                }
+            }
+
+            if (offset <= -100) {
+                if (sec_blessing.classList.contains("active")) {
+                    sec_blessing.classList.remove("active");
+                } else {
+                    if (sec_ceremony.classList.contains("active")) {
+                        sec_ceremony.classList.remove("active");
+                    } else {
+                        if (sec_history.classList.contains("active")) {
+                            sec_history.classList.remove("active");
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
     
     <script>
         document.querySelector('body').addEventListener('wheel', function (e) {
