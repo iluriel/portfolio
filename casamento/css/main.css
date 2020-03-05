@@ -51,7 +51,7 @@ a {
 }
 
 /* ----- Page structure ----- */
-body {
+html {
   overflow: hidden;
   height: 100%;
 }

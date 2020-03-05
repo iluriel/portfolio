@@ -78,7 +78,7 @@
 
     </main>
 
-    <script>
+    <!--<script>
         document.querySelector('body').addEventListener("touchstart", touchStart, false);
         document.querySelector('body').addEventListener("touchmove", touchMove, false);
 
@@ -95,7 +95,7 @@
 
             return offset;
 
-            if (offset >= 100) {
+            if (offset >= 10) {
                 if (sec_history.classList.contains("active")) {
                     if (sec_ceremony.classList.contains("active")) {
                         sec_blessing.classList.add("active");
@@ -108,7 +108,7 @@
                 }
             }
 
-            if (offset <= -100) {
+            if (offset <= -10) {
                 if (sec_blessing.classList.contains("active")) {
                     sec_blessing.classList.remove("active");
                 } else {
@@ -123,7 +123,7 @@
             }
         }
 
-    </script>
+    </script>-->
     
     <script>
         document.querySelector('body').addEventListener('wheel', function (e) {
