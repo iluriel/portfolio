@@ -17,47 +17,6 @@ $colors: (
     box-sizing: border-box;
 }
 
-/* ----- Page structure ----- */
-body {
-    overflow: hidden;
-}
-
-.section__float {
-    width: 100%;
-    height: 100vh;
-    background-color: color(white);
-    border: 1px solid color(gold);
-    border-bottom: 0;
-    border-radius: 16px 16px 0 0;
-    position: absolute;
-}
-
-.section-content {
-    padding: 0px 24px 0px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#section__history {
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
-    z-index: 1;
-    bottom: calc(64px - 100vh);
-}
-
-#section__ceremony {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-    z-index: 2;
-    bottom: calc(32px - 100vh);
-}
-
-#section__blessing {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    z-index: 3;
-    bottom: calc(16px - 100vh);
-}
-
 /* ----- Typography ----- */
 h1 {
     visibility:hidden;
@@ -66,16 +25,6 @@ h1 {
 }
 
 .section__title {
-    padding: 16px 24px 0px 24px;
-    display: inline-block;
-    width: 100%;
-    font-size: 32px;
-    line-height: 48px;
-    margin-bottom: 24px;
-    color: color(green-dark);
-}
-
-.section__title--off {
     padding: 4px 24px 0px 24px;
     display: inline-block;
     width: 100%;
@@ -114,14 +63,43 @@ a {
     color: color(gold);
 }
 
-/* ----- Section Home ----- */
-nav {
-    position: fixed;
-    top: 4px;
-    left: 16px;
-    z-index: 1000;
-    visibility: hidden;
+/* ----- Page structure ----- */
+body {
+    overflow: hidden;
 }
+
+.section__float {
+    width: 100%;
+    height: 100vh;
+    background-color: color(white);
+    border: 1px solid color(gold);
+    border-bottom: 0;
+    border-radius: 16px 16px 0 0;
+    position: absolute;
+
+    .section__content {
+        padding: 0px 24px 0px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }   
+}
+
+.active {
+    .section__title {
+        padding: 16px 24px 0px 24px;
+        display: inline-block;
+        width: 100%;
+        font-size: 32px;
+        line-height: 48px;
+        margin-bottom: 24px;
+        color: color(green-dark);
+        transition: all 500ms;
+    }
+}
+
+/* ----- Section Home ----- */
 
 #section__home {
     width: 100%;
@@ -132,9 +110,13 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    .scroll__logo {
-        display: none;
+
+    .nav__logo {
+        position: fixed;
+        top: 4px;
+        left: 16px;
+        z-index: 1000;
+        visibility: hidden;
     }
 
     .background__image--top-right {
@@ -163,6 +145,10 @@ nav {
 /* ----- Section history ----- */
 
 #section__history {
+    top: calc(100% - 96px);
+    transition: top 500ms;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+    z-index: 1;
 
     .section__scroll {
         position: relative;
@@ -206,11 +192,19 @@ nav {
             }
         }
     }
+
+    &.active {
+        top: 48px;    
+    }
 }
 
 /* ----- Section ceremony ----- */
 
 #section__ceremony {
+    top: calc(100% - 64px);
+    transition: top 500ms;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    z-index: 2;
 
     .ceremony__date {
         display: inline-block;
@@ -224,187 +218,66 @@ nav {
     ol {
         list-style-type: none;
     }
+
+    &.active {
+        top: 64px;    
+    }
 }
 
 /* ----- Section blessing ----- */
 
-.btn {
-    font-size: 20px;
-    line-height: 28px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    border-radius: 24px;
-    width: 100%;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin: 16px 0 0;
-}
+#section__blessing {
+    top: calc(100% - 32px);
+    transition: top 500ms;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    z-index: 3;
 
-.btn-primary {
-    color: color(white);
-    background-color: color(gold);
-    border: 2px solid color(gold);
-}
-
-.btn-secondary {
-    color: color(gold-dark);
-    background-color: color(white);
-    border: 2px solid color(gold);
-}
-
-footer {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    text-decoration: none;
-    color: color(white);
-    background-color: color(gold);
-    padding-top: 16px;
-    padding-bottom: 16px;
-    margin-top: 32px;
-
-    cite {
-        font-size: 10px;
-        line-height: 24px;
+    .btn {
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        border-radius: 24px;
+        width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin: 16px 0 0;
     }
-
-}
-
-/* ----- Scroll events ----- */
-
-.section__home--on {
-
-    #section__history {
-        .section__title {
-            padding: 4px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            color: color(green-light);
-        }
-    }
-}
-
-.section__history--on {
-
-    nav {
-        visibility: visible;
-    }
-
-    #section__home {
-        opacity: 50%;
-    }
-
-    #section__history {
-        top: 48px;
-        position: fixed;
-
-        .section__title {
-            padding: 16px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 32px;
-            line-height: 48px;
-            margin-bottom: 24px;
-            color: color(green-dark);
-        }
-    }
-
-    #section__ceremony {
-        bottom: calc(48px - 100vh);
-
-        .section__title {
-            padding: 4px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            color: color(green-light);
-        }        
-    }
-}
-
-.section__ceremony--on {
-
-    nav {
-        visibility: visible;
-    }
-
-    #section__home {
-        opacity: 50%;
-    }
-
-    #section__history {
-        top: 48px;
-    }
-
-    #section__ceremony {
-        top: 64px;
-        position: fixed;
-
-        .section__title {
-            padding: 16px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 32px;
-            line-height: 48px;
-            margin-bottom: 24px;
-            color: color(green-dark);
-        }
-    }
-
-    #section__blessing {
-        bottom: calc(32px - 100vh);
-
-        .section__title {
-            padding: 4px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            color: color(green-light);
-        }        
-    }
-}
-
-.section__blessing--on {
     
-    nav {
-        visibility: visible;
+    .btn-primary {
+        color: color(white);
+        background-color: color(gold);
+        border: 2px solid color(gold);
     }
-
-    #section__home {
-        opacity: 50%;
+    
+    .btn-secondary {
+        color: color(gold-dark);
+        background-color: color(white);
+        border: 2px solid color(gold);
     }
-
-    #section__history {
-        top: 48px;
-    }
-
-    #section__ceremony {
-        top: 64px;
-    }
-
-    #section__blessing {
-        top: 80px;
-        position: fixed;
-
-        .section__title {
-            padding: 16px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 32px;
-            line-height: 48px;
-            margin-bottom: 24px;
-            color: color(green-dark);
+    
+    footer {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        text-decoration: none;
+        color: color(white);
+        background-color: color(gold);
+        padding-top: 16px;
+        padding-bottom: 16px;
+        margin-top: 32px;
+    
+        cite {
+            font-size: 10px;
+            line-height: 24px;
         }
+    }
+
+    &.active {
+        top: 80px;    
     }
 }

@@ -15,11 +15,10 @@
 
     <main role="main" class="section__home--on">
 
-        <nav>
-            <img class="nav__logo" height="40px" src="/casamento/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
-        </nav>
-
         <section id="section__home">
+            <nav class="scroll__logo">
+                <img class="nav__logo" height="40px" src="/casamento/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
+            </nav>
             <img class="home__logo" src="/casamento/assets/logo-aline-iluriel-square.svg" alt="Iluriel e Aline">
             <h1>Aline e Iluriel</h1>
             <small>Convidam para seu casamento</small>
@@ -28,13 +27,13 @@
         </section>
 
         <section id="section__history" class="section__float">
-            <header id="click__history" class="section__title">
-                <h2>Nossa história</h2>
+            <header id="click__history">
+                <h2 class="section__title">Nossa história</h2>
             </header>
             <div class="section__scroll">
                 <ol>
                     <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
-                    <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos.</li>
+                    <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos. :)</li>
                     <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
                     <div class="scroll-spacing"></div>
                 </ol>
@@ -42,10 +41,10 @@
         </section>
 
         <section id="section__ceremony" class="section__float">
-            <header class="section__title">
+            <header id="click__ceremony" class="section__title">
                 <h2>A cerimônia</h2>
             </header>
-            <div class="section-content">
+            <div class="section__content">
                 <div class="ceremony__date">
                     <time datetime="2020-06-20 18:00"><img src="/casamento/assets/date.svg" alt="2020-06-20 18:00"></time>
                 </div>
@@ -61,10 +60,10 @@
         </section>
 
         <section id="section__blessing" class="section__float">
-            <header class="section__title">
+            <header id="click__blessing" class="section__title">
                 <h2>Sua bênção</h2>
             </header>
-            <div class="section-content">
+            <div class="section__content">
                 <strong>Faça parte de nossa história!</strong>
                 <a class="btn btn-primary" href="http://finalfeliz.de/aline-iluriel" target="__blank" title="Lista de presentes">Presentear os noivos</a>
                 <a class="btn btn-secondary" href="https://www.querodecasamento.com.br/lista-de-casamento/aline-iluriel/comentarios/" target="__blank" title="Lista de presentes">Deixar uma mensagem</a>    
@@ -78,19 +77,82 @@
         </section>
 
     </main>
+    
+    <script>
+        document.querySelector('body').addEventListener('wheel', function (e) {
+            var scroll = e.deltaY;
+            var sec_home = document.querySelector("#section__home");
+            var sec_history = document.querySelector("#section__history");
+            var sec_ceremony = document.querySelector("#section__ceremony");
+            var sec_blessing = document.querySelector("#section__blessing");
+
+            if (scroll >= 100) {
+                if (sec_history.classList.contains("active")) {
+                    if (sec_ceremony.classList.contains("active")) {
+                        sec_blessing.classList.add("active");
+                    } else {
+                        sec_ceremony.classList.add("active");
+                    }
+                } else {
+                sec_history.classList.add("active");
+                sec_home.classList.add("active");
+                }
+            }
+
+            if (scroll <= -100) {
+                if (sec_blessing.classList.contains("active")) {
+                    sec_blessing.classList.remove("active");
+                } else {
+                    if (sec_ceremony.classList.contains("active")) {
+                        sec_ceremony.classList.remove("active");
+                    } else {
+                        if (sec_history.classList.contains("active")) {
+                            sec_history.classList.remove("active");
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 
     <script>
         document.getElementById("click__history").addEventListener("click", function() {
-            var maina = document.querySelector("main");
-            maina.classList.toggle("section__history--on");
+            var sec_history = document.querySelector("#section__history");
+            var sec_ceremony = document.querySelector("#section__ceremony");
+            var sec_blessing = document.querySelector("#section__blessing");
+            if (sec_history.classList.contains("active")) {
+                sec_history.classList.remove("active");
+                sec_ceremony.classList.remove("active");
+                sec_blessing.classList.remove("active");
+            } else {
+                sec_history.classList.add("active");
+            }
         });
-        document.getElementById("section__ceremony").addEventListener("click", function() {
-            var mainb = document.querySelector("main");
-            mainb.classList.toggle("section__ceremony--on");
+
+        document.getElementById("click__ceremony").addEventListener("click", function() {
+            var sec_history = document.querySelector("#section__history");
+            var sec_ceremony = document.querySelector("#section__ceremony");
+            var sec_blessing = document.querySelector("#section__blessing");
+            if (sec_ceremony.classList.contains("active")) {
+                sec_ceremony.classList.remove("active");
+                sec_blessing.classList.remove("active");
+            } else {
+                sec_history.classList.add("active");
+                sec_ceremony.classList.add("active");
+            }
         });
-        document.getElementById("section__blessing").addEventListener("click", function() {
-            var mainc = document.querySelector("main");
-            mainc.classList.toggle("section__blessing--on");
+        
+        document.getElementById("click__blessing").addEventListener("click", function() {
+            var sec_history = document.querySelector("#section__history");
+            var sec_ceremony = document.querySelector("#section__ceremony");
+            var sec_blessing = document.querySelector("#section__blessing");
+            if (sec_blessing.classList.contains("active")) {
+                sec_blessing.classList.remove("active");
+            } else {
+                sec_history.classList.add("active");
+                sec_ceremony.classList.add("active");
+                sec_blessing.classList.add("active");
+            }        
         });
     </script>
 
