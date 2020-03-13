@@ -102,7 +102,7 @@ html {
 
 /* ----- Section Home ----- */
 
-#section__home {
+.section__home {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -127,7 +127,7 @@ html {
         right: 0px;
         width: 240px;
         height: 362px;
-        background: url(/casamento/assets/superior-direito-folhas.png);
+        background: url(/assets/superior-direito-folhas.png);
         background-size: cover;
     }
     
@@ -138,14 +138,27 @@ html {
         left: 0px;
         width: 240px;
         height: 212px;
-        background: url(/casamento/assets/inferior-esquerdo-folhas.png);
+        background: url(/assets/inferior-esquerdo-folhas.png);
         background-size: cover;
+    }
+
+    .background__image--vector {
+        z-index: -1;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        background: url(/assets/background-vector-mobile.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 }
 
 /* ----- Section history ----- */
 
-#section__history {
+.section__history {
     top: calc(100% - 96px);
     height: calc(100% - 48px);
     transition: top 500ms;
@@ -157,52 +170,67 @@ html {
         padding-left: 24px;
         overflow: auto;
         display: flex;
+        height: calc(100% - 168px);
 
         ol {
             list-style-type: none;
             display: flex;
 
             li {
-                color: color(white);
+                /*color: color(white);
                 padding: 16px;
                 margin-right: 16px;
                 border-radius: 16px;
                 display: flex;
                 align-items: flex-end;
-                height: 325px;
-                width: calc(100% - 112px);
-                flex-shrink: 0;
+                flex-shrink: 0;*/
+                figure {
+                    height: 100%;
+                    width: calc(100vw - 64px);
+                    margin-right: 16px;
+
+                    img {
+                        border-radius: 16px;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+
+                    figcaption {
+                        color: color(gold);
+                    }
+                }
             }
 
-            li:nth-child(1) {
-                background-image: url(/casamento/assets/history-01.jpg);
+            /*li:nth-child(1) {
+                background-image: url(/assets/history-01.jpg);
                 background-size: cover;
             }
 
             li:nth-child(2) {
-                background-image: url(/casamento/assets/history-02.jpg);
+                background-image: url(/assets/history-02.jpg);
                 background-size: cover;
             }
 
             li:nth-child(3) {
-                background-image: url(/casamento/assets/history-03.jpg);
+                background-image: url(/assets/history-03.jpg);
                 background-size: cover;
             }
             .scroll-spacing {
                 width: 8px;
                 flex-shrink: 0;
-            }
+            }*/
         }
     }
 
-    &.active {
+    &.active,
+    &.passed {
         top: 48px;    
     }
 }
 
 /* ----- Section ceremony ----- */
 
-#section__ceremony {
+.section__ceremony {
     top: calc(100% - 64px);
     height: calc(100% - 64px);
     transition: top 500ms;
@@ -213,7 +241,7 @@ html {
         display: inline-block;
         width: 225px;
         height: 40px;
-        background-image: url(/casamento/assets/date.svg);
+        background-image: url(/assets/date.svg);
         background-repeat: no-repeat;
         margin: 0 auto;
     }
@@ -222,14 +250,15 @@ html {
         list-style-type: none;
     }
 
-    &.active {
+    &.active,
+    &.passed {
         top: 64px;    
     }
 }
 
 /* ----- Section blessing ----- */
 
-#section__blessing {
+.section__blessing {
     top: calc(100% - 32px);
     height: calc(100% - 80px);
     transition: top 500ms;
@@ -281,7 +310,8 @@ html {
         }
     }
 
-    &.active {
+    &.active,
+    &.passed {
         top: 80px;    
     }
 }
