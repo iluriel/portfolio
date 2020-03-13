@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kurale&display=swap" rel="stylesheet">
+    <!-- Hotjar Tracking Code for http://aline.iluriel.com/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1716557,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     <title>Aline & Iluriel</title>
 </head>
 
@@ -15,38 +26,69 @@
 
     <main role="main" class="section__home--on">
 
-        <section id="section__home">
+        <section id="section__click" class="section__home active" data-index="0">
             <nav class="scroll__logo">
-                <img class="nav__logo" height="40px" src="/casamento/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
+                <img class="nav__logo" height="40px" src="/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
             </nav>
-            <img class="home__logo" src="/casamento/assets/logo-aline-iluriel-square.svg" alt="Iluriel e Aline">
+            <img class="home__logo" src="/assets/logo-aline-iluriel-square.svg" alt="Iluriel e Aline">
             <h1>Aline e Iluriel</h1>
             <small>Convidam para seu casamento</small>
             <div class="background__image--top-right"></div>
             <div class="background__image--botton-left"></div>
+            <!--<div class="background__image--vector"></div>-->
         </section>
 
-        <section id="section__history" class="section__float">
-            <header id="click__history">
+        <section class="section__history section__float section__click" data-index="1">
+            <header class="click__open">
                 <h2 class="section__title">Nossa história</h2>
             </header>
             <div class="section__scroll">
                 <ol>
-                    <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
-                    <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos. :)</li>
-                    <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
+                    <li>
+                        <!-- posicionamento -->
+                        <figure>
+                            <!-- tamanho -->
+                            <div>
+                                <!-- width: 100%; -->
+                                <img src="/assets/history-01.jpg" alt="Aline e Iluriel abraçados na Praça da Liberdade">
+                            </div>
+                            <figcaption>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <!-- posicionamento -->
+                        <figure>
+                            <!-- tamanho -->
+                            <div>
+                                <!-- width: 100%; -->
+                                <img src="/assets/history-02.jpg" alt="Aline e Iluriel com um bouquet nas mãos">
+                            </div>
+                            <figcaption>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <!-- posicionamento -->
+                        <figure>
+                            <!-- tamanho -->
+                            <div>
+                                <!-- width: 100%; -->
+                                <img src="/assets/history-03.jpg" alt="Aline e Iluriel com as alianças de noivado">
+                            </div>
+                            <figcaption>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</figcaption>
+                        </figure>
+                        </li>
                     <div class="scroll-spacing"></div>
                 </ol>
             </div>
         </section>
 
-        <section id="section__ceremony" class="section__float">
-            <header id="click__ceremony" class="section__title">
+        <section class="section__ceremony section__float section__click" data-index="2">
+            <header class="section__title click__open">
                 <h2>A cerimônia</h2>
             </header>
             <div class="section__content">
                 <div class="ceremony__date">
-                    <time datetime="2020-06-20 18:00"><img src="/casamento/assets/date.svg" alt="2020-06-20 18:00"></time>
+                    <time datetime="2020-06-20 18:00"><img src="/assets/date.svg" alt="2020-06-20 18:00"></time>
                 </div>
                 <address>
                     <ol>
@@ -59,8 +101,8 @@
             </article>
         </section>
 
-        <section id="section__blessing" class="section__float">
-            <header id="click__blessing" class="section__title">
+        <section class="section__blessing section__float section__click" data-index="3">
+            <header class="section__title click__open">
                 <h2>Sua bênção</h2>
             </header>
             <div class="section__content">
@@ -77,130 +119,102 @@
         </section>
 
     </main>
-
-    <!--<script>
-        document.querySelector('body').addEventListener("touchstart", touchStart, false);
-        document.querySelector('body').addEventListener("touchmove", touchMove, false);
-
-        var start = { y: 0 };
-
-        function touchStart(event) {
-            start.y = event.touches[0].pageY;
-        }
-
-        function touchMove(event) {
-            offset = {};
-
-            offset.y = start.y - event.touches[0].pageY;
-
-            return offset;
-
-            if (offset >= 10) {
-                if (sec_history.classList.contains("active")) {
-                    if (sec_ceremony.classList.contains("active")) {
-                        sec_blessing.classList.add("active");
-                    } else {
-                        sec_ceremony.classList.add("active");
-                    }
-                } else {
-                sec_history.classList.add("active");
-                sec_home.classList.add("active");
-                }
-            }
-
-            if (offset <= -10) {
-                if (sec_blessing.classList.contains("active")) {
-                    sec_blessing.classList.remove("active");
-                } else {
-                    if (sec_ceremony.classList.contains("active")) {
-                        sec_ceremony.classList.remove("active");
-                    } else {
-                        if (sec_history.classList.contains("active")) {
-                            sec_history.classList.remove("active");
-                        }
-                    }
-                }
-            }
-        }
-
-    </script>-->
     
     <script>
+        var lastMove = {y: 0};
+        document.querySelector('body').addEventListener('touchstart', e => {
+            lastMove.y = event.touches[0].pageY;
+        }, false)
+        document.querySelector('body').addEventListener('touchmove', e => {
+            if (lastMove.y > e.touches[0].pageY) {
+                openSection()
+            } else {
+                closeSection()
+            }
+        }, false)
+        const openSection = () => {
+            var body = document.querySelector("body");
+            var section_active = document.querySelector("section.active");
+            var section_active_index = section_active.getAttribute("data-index");
+            var next_index = Number(section_active_index) + 1;
+            var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+            if (next_index === 4) return;
+            if (body.classList.contains("transiting")) return;
+
+            body.classList.add("transiting");
+            setTimeout(function() {
+                body.classList.remove("transiting");
+            }, 1000);
+
+            section_active.classList.remove("active");
+            section_active.classList.add("passed");
+            next_section.classList.add("active");
+        }
+
+        const closeSection = () => {
+            var body = document.querySelector("body");
+            var section_active = document.querySelector("section.active");
+            var section_active_index = section_active.getAttribute("data-index");
+            var next_index = Number(section_active_index) - 1;
+            var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+            if (next_index === -1) return;
+            if (body.classList.contains("transiting")) return;
+
+            body.classList.add("transiting");
+            setTimeout(function() {
+                body.classList.remove("transiting");
+            }, 1000);
+
+            section_active.classList.remove("active");
+            next_section.classList.remove("passed");
+            next_section.classList.add("active");
+        }
+
         document.querySelector('body').addEventListener('wheel', function (e) {
             var scroll = e.deltaY;
-            var sec_home = document.querySelector("#section__home");
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
 
             if (scroll >= 100) {
-                if (sec_history.classList.contains("active")) {
-                    if (sec_ceremony.classList.contains("active")) {
-                        sec_blessing.classList.add("active");
-                    } else {
-                        sec_ceremony.classList.add("active");
-                    }
-                } else {
-                sec_history.classList.add("active");
-                sec_home.classList.add("active");
-                }
+                openSection()
             }
 
             if (scroll <= -100) {
-                if (sec_blessing.classList.contains("active")) {
-                    sec_blessing.classList.remove("active");
-                } else {
-                    if (sec_ceremony.classList.contains("active")) {
-                        sec_ceremony.classList.remove("active");
-                    } else {
-                        if (sec_history.classList.contains("active")) {
-                            sec_history.classList.remove("active");
-                        }
-                    }
-                }
+                closeSection()
             }
         });
     </script>
 
     <script>
-        document.getElementById("click__history").addEventListener("click", function() {
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
-            if (sec_history.classList.contains("active")) {
-                sec_history.classList.remove("active");
-                sec_ceremony.classList.remove("active");
-                sec_blessing.classList.remove("active");
-            } else {
-                sec_history.classList.add("active");
-            }
-        });
+        const opened = {}
+        const setEventClick = _class => {
+            document.querySelectorAll(_class)
+                .forEach(element => element.addEventListener("click", () => {
+                    const index = element.parentElement.getAttribute('data-index')
+                    if (opened[index]) {
+                        closeSection()
+                        opened[index] = false
+                    } else {
+                        openSection()
+                        opened[index] = true
+                    }
+                }))
+        }
 
-        document.getElementById("click__ceremony").addEventListener("click", function() {
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
-            if (sec_ceremony.classList.contains("active")) {
-                sec_ceremony.classList.remove("active");
-                sec_blessing.classList.remove("active");
-            } else {
-                sec_history.classList.add("active");
-                sec_ceremony.classList.add("active");
-            }
-        });
-        
-        document.getElementById("click__blessing").addEventListener("click", function() {
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
-            if (sec_blessing.classList.contains("active")) {
-                sec_blessing.classList.remove("active");
-            } else {
-                sec_history.classList.add("active");
-                sec_ceremony.classList.add("active");
-                sec_blessing.classList.add("active");
-            }        
-        });
+        setEventClick('.click__open')
+
+        const resetEventTouch = (_class) => {
+            document.querySelectorAll(_class).forEach(element => {
+                element.addEventListener('touchmove', e => {
+                    e.stopPropagation()
+                });
+                element.addEventListener('touchstart', e => {
+                    e.stopPropagation()
+                });
+            })
+        }
+        resetEventTouch('.section__scroll')
+        resetEventTouch('.section__content')
     </script>
 
 </body>
