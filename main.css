@@ -21,10 +21,6 @@ html {
 body {
 	width: 60%;
 	margin: auto;
-	background-image: url(images/BG.png);
-	background-position: top;
-	background-size: cover;
-	background-repeat: no-repeat;
 }
 @media screen and (min-width: 1280px) {
     body {
@@ -72,35 +68,6 @@ p {
 	margin-top: 10px;
 	font-size: 20px;
 }
-
-
-/*-------- Nav --------*/
-.nav {
-	display: flex;
-	align-items: center;
-	height: 100px;
-}
-.contactMe, .navIcons {
-	flex: 1;
-}
-.navIcons {
-	text-align: right;
-}
-.navIcons a, .contactMe a, .contactMe img {
-	display: inline-block;
-	vertical-align: middle;
-}
-.navIcons a {
-	margin-left: 40px;
-}
-.contactMe a {
-	color: #027BFF;
-	text-decoration: none;
-}
-.contactMe img {
-	margin-right: 10px;
-}
-
 
 /*-------- Landing --------*/
 .landing {
@@ -182,6 +149,13 @@ ul {
 	overflow: hidden;
 	border-radius: 100px;
 }
+
+@media screen and (max-width: 600px) {
+    .button {
+		width: 100%;
+    }
+}
+
 .button span {
 	position: relative;
 	pointer-events: none;
